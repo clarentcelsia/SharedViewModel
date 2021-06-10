@@ -46,14 +46,14 @@ class DeliveryViewModel: ViewModel() {
 
 
     fun calculatedPrice() : Double{
-        if(data.equals("pie")){
-            if(courier.equals("jne")) _price.value = ((qty.value ?: 0) * PIE_PRICE) + JNE
+        if(data.value.equals("pie")){
+            if(courier.value.equals("jne")) _price.value = ((qty.value ?: 0) * PIE_PRICE) + JNE
             else  _price.value = ((qty.value ?: 0) * PIE_PRICE)+ COURIER_FEE
-        }else if (data.equals("nougat")){
-            if(courier.equals("jne"))  _price.value = ((qty.value ?: 0) * NOUGAT_PRICE) + JNE
+        }else if (data.value.equals("nougat")){
+            if(courier.value.equals("jne"))  _price.value = ((qty.value ?: 0) * NOUGAT_PRICE) + JNE
             else  _price.value = ((qty.value ?: 0) * NOUGAT_PRICE) + COURIER_FEE
         }else
-            if(courier.equals("jne"))  _price.value = ((qty.value ?: 0) * OREO_PRICE) + JNE
+            if(courier.value.equals("jne"))  _price.value = ((qty.value ?: 0) * OREO_PRICE) + JNE
             else  _price.value = ((qty.value ?: 0) * OREO_PRICE)+ COURIER_FEE
 
         return _price.value!!
