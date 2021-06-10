@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.sharedviewmodel.DeliveryViewModel" />
+
+        <variable
+            name="detailFragment"
+            type="com.example.sharedviewmodel.DetailFragment" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/backss"
+        tools:context=".DetailFragment">
+
+        <LinearLayout
+            android:id="@+id/llQty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/quantity"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/select_the_available_order_quantity"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="17sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/orderTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:backgroundTint="@color/turquois"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:onClick="@{()->viewModel.setQty(2)}"
+                    android:text="@string/two"/>
+
+                <Button
+                    android:id="@+id/orderFour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:backgroundTint="@color/turquois"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:onClick="@{()->viewModel.setQty(4)}"
+                    android:text="@string/four" />
+
+                <Button
+                    android:id="@+id/orderSix"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/turquois"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:onClick="@{()->viewModel.setQty(6)}"
+                    android:text="@string/six" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llQty"
+            android:layout_marginStart="42dp"
+            android:layout_marginTop="124dp"
+            android:layout_marginBottom="55dp"
+            android:textColor="@color/turquois"
+            android:onClick="@{()->detailFragment.onBack()}"
+            android:text="@string/back"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llQty"
+            app:layout_constraintVertical_bias="0.488" />
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llQty"
+            android:layout_marginStart="296dp"
+            android:layout_marginTop="124dp"
+            android:layout_marginEnd="42dp"
+            android:layout_marginBottom="55dp"
+            android:onClick="@{()->detailFragment.onNext()}"
+            android:text="@string/next"
+            android:textColor="@color/turquois"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llQty"
+            app:layout_constraintVertical_bias="0.488" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

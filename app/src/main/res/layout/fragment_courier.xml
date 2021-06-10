@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.sharedviewmodel.DeliveryViewModel" />
+
+        <variable
+            name="courierFragment"
+            type="com.example.sharedviewmodel.CourierFragment" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/backss"
+        tools:context=".CourierFragment">
+
+        <LinearLayout
+            android:id="@+id/llQty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/delivery_courier"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/select_recommended_courier"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="17sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/jne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:backgroundTint="@color/turquois"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:onClick="@{()->viewModel.setCourier(@string/jne)}"
+                    android:text="JNE\n(same day)" />
+
+                <Button
+                    android:id="@+id/jnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:backgroundTint="@color/turquois"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:onClick="@{()->viewModel.setCourier(@string/jnt)}"
+                    android:text="JNT \n(2-3d)" />
+
+                <Button
+                    android:id="@+id/cargo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/turquois"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:onClick="@{()->viewModel.setCourier(@string/cargo)}"
+                    android:text="Cargo \n(5-6d)" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/backs"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llQty"
+            android:layout_marginStart="42dp"
+            android:layout_marginTop="124dp"
+            android:layout_marginBottom="55dp"
+            android:onClick="@{()->courierFragment.onBack()}"
+            android:text="back"
+            android:textColor="@color/turquois"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llQty"
+            app:layout_constraintVertical_bias="0.488" />
+
+        <Button
+            android:id="@+id/nexts"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llQty"
+            android:layout_marginStart="296dp"
+            android:layout_marginTop="124dp"
+            android:layout_marginEnd="42dp"
+            android:layout_marginBottom="55dp"
+            android:onClick="@{()->courierFragment.onNext()}"
+            android:text="Next"
+            android:textColor="@color/turquois"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llQty"
+            app:layout_constraintVertical_bias="0.488" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Divider style -->
+    <style name="Widget.Divider" parent="">
+        <item name="android:background">?attr/dividerHorizontal</item>
+    </style>
+
+    <!-- TextView style for an order summary label -->
+    <style name="Widget.TextView.Label" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+    </style>
+
+    <!-- TextView style for an order summary entry -->
+    <style name="Widget.TextView.OrderSummary" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- TextView style -->
+    <style name="Widget.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">?attr/textAppearanceSubtitle2</item>
+    </style>
+
+    <!-- Final price TextView style -->
+    <style name="Widget.TextView.FinalPrice" parent="Widget.TextView">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textAppearance">?attr/textAppearanceHeadline6</item>
+    </style>
+</resources>

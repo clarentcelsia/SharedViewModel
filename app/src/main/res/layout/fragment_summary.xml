@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.sharedviewmodel.DeliveryViewModel" />
+
+        <variable
+            name="summaryFragment"
+            type="com.example.sharedviewmodel.SummaryFragment" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SummaryFragment"
+        android:background="@drawable/backss">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="@dimen/side_margin">
+
+            <!-- Group the order details into a single ViewGroup and set focusable = true,
+                 so all fields will be read aloud together by the accessibility service -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/quantity_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/quantity"
+                    android:textAllCaps="true"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/qty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/order_summary_margin"
+                    android:text="@{viewModel.qty.toString()}"
+                    tools:text="2"
+                    android:textStyle="bold"/>
+
+                <View
+                    android:id="@+id/divider1"
+                    style="@style/Widget.Divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/side_margin"
+                    android:layout_marginBottom="@dimen/side_margin" />
+
+                <TextView
+                    android:id="@+id/pickup_label"
+                    style="@style/Widget.TextView.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/courier" />
+
+                <TextView
+                    android:id="@+id/courier"
+                    android:layout_width="wrap_content"
+                    style="@style/Widget.TextView.OrderSummary"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/order_summary_margin"
+                    android:textAllCaps="true"
+                    android:text="@{viewModel.courier}"
+                    tools:text="JNE"/>
+
+                <View
+                    android:id="@+id/divider3"
+                    style="@style/Widget.Divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/side_margin"
+                    android:layout_marginBottom="@dimen/margin_between_elements" />
+
+                <TextView
+                    android:id="@+id/total"
+                    style="@style/Widget.TextView.FinalPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/side_margin"
+                    android:text="@{@string/total(viewModel.price.toString())}"
+                    tools:text="Total Rp220"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/send"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/side_margin"
+                android:text="@string/send"
+                android:backgroundTint="@color/turquois"
+                android:onClick="@{()->summaryFragment.onSend()}"/>
+
+            <Button
+                android:id="@+id/cancel"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_between_elements"
+                android:text="@string/cancel"
+                android:onClick="@{()->summaryFragment.onCancel()}"/>
+
+        </LinearLayout>
+    </ScrollView>
+</layout>
